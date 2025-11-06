@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Sun, Moon, Rocket } from 'lucide-react'
+import { Sun, Moon, Rocket, User } from 'lucide-react'
 
 export default function Navbar({ onNavigate, currentView, theme, setTheme }) {
   useEffect(() => {
@@ -24,6 +24,9 @@ export default function Navbar({ onNavigate, currentView, theme, setTheme }) {
           <button onClick={() => onNavigate('writer')} className={`px-3 py-1.5 rounded-md text-sm font-medium ${currentView==='writer' ? 'bg-blue-600 text-white' : 'text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800'}`}>AI Project Writer</button>
         </nav>
         <div className="flex items-center gap-2">
+          <button onClick={() => onNavigate('account')} className={`hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium ${currentView==='account' ? 'bg-blue-600 text-white' : 'text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800'}`}>
+            <User className="h-4 w-4" /> Account
+          </button>
           <button aria-label="Toggle theme" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} className="p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-200">
             {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </button>

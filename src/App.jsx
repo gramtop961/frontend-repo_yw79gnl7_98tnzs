@@ -6,6 +6,8 @@ import Writer from './components/Writer'
 import Builder from './components/Builder'
 import Footer from './components/Footer'
 import { InfoModal } from './components/Modals'
+import Account from './components/Account'
+import { AdminPanel } from './components/AuthForms'
 
 function App() {
   const [view, setView] = useState('home')
@@ -51,6 +53,19 @@ function App() {
       {view === 'builder' && (
         <main>
           <Builder backendUrl={backendUrl} />
+        </main>
+      )}
+
+      {view === 'account' && (
+        <main>
+          <Account backendUrl={backendUrl} onNavigate={setView} />
+        </main>
+      )}
+
+      {view === 'admin' && (
+        <main className="max-w-6xl mx-auto p-4 md:p-8">
+          <h2 className="text-2xl font-bold text-neutral-900 dark:text-white mb-4">Admin Dashboard</h2>
+          <AdminPanel backendUrl={backendUrl} />
         </main>
       )}
 
